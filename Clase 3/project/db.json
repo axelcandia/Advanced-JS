@@ -1,0 +1,17 @@
+{
+  "toDos": [
+    {
+      "id": 1,
+      "title": "Learn JSX",
+      "description": "Learn basics of JSX",
+      "user": "evaleiras"
+    },
+    {
+      "id": 2,
+      "title": "Learn ReactJS",
+      "description": "Learn basics of ReactJS",
+      "user": "evaleiras"
+    }
+  ]
+
+}
