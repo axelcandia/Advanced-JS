@@ -2,7 +2,6 @@ const fs = require('fs');
 const express = require('express');
 const router = express.Router();
 const db = require('../db.json');
-const util = require('../utils');
 
 const guidGenerator = () => {
     const S4 = () => {
@@ -15,9 +14,7 @@ const guidGenerator = () => {
 router.get('/:collection', (req, res) => {
     const collection = req.params.collection;
     const list = db[collection];
-    const filter = req.query.filter;
-
-    res.json({Success: true, data: util.search(list, filter)})
+    res.json({Success: true, data: list})
 });
 
 router.get('/:collection/:id', (req, res) => {
@@ -35,7 +32,6 @@ router.post('/:collection', (req, res) => {
     db[collection].push(el);
 
     fs.writeFile(`db.json`, JSON.stringify(db), () => {
-        res.setHeader('Content-Location', `${req.protocol}://${req.headers.host}/${collection}/${el.id}`);
         return res.json({Success: true, data: el});
     });
 
