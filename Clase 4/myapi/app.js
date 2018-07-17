@@ -3,7 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
- 
+const mongoose = require("mongoose");
+mongoose.connect("mongodb//localhost:27017/myApi");
+
+
 var app = express();
 
 // view engine setup
